@@ -1,19 +1,19 @@
-###step 0 配置ndkbuild环境
+## step 0 配置ndkbuild环境
 
 我使用的是 Android Studio 自带的ndk-bundle，版本是15
 
 
-###step 1 下载 解压 assimp3.3.1 源码
+## step 1 下载 解压 assimp3.3.1 源码
 
 链接地址 https://github.com/assimp/assimp/releases/tag/v3.3.1/  
 
-###step 2  生成revision.h文件
+## step 2  生成revision.h文件
 
 到解压后的目录 运行  
 
     cmake .
 
-###step 3  修改编译脚本
+## step 3  修改编译脚本
 
 进入${assimp dir}/workspaces/Android-NDK/jni  
 
@@ -36,7 +36,7 @@ APP_STL := gnustl_static
 
     $(LOCAL_PATH)/contrib/rapidjson/include
 
-###step 3  加入代码文件std_extention.h
+## step 4  加入代码文件std_extention.h
 
 进入${assimp dir}/include/assimp，新建文件std_extention.h  
 
@@ -60,7 +60,7 @@ namespace std{
 #endif //TESTFST_STD_EXTENSION_H
 ```
 
-###step 4  修改代码文件
+## step 5  修改代码文件
 
 打开文件${assimp dir}/include/assimp/types.h,在include部分加入代码
 ```
@@ -77,7 +77,7 @@ namespace std{
 
 
 
-###step 5 编译
+## step 6 编译
 
 进入${assimp dir}/workspaces/Android-NDK/jni目录运行  
 ```
