@@ -17,7 +17,7 @@
 
 进入${assimp dir}/workspaces/Android-NDK/jni  
 
-编辑Application.mk文件，删除原有内容加入以下变量  
+编辑Application.mk文件，用以下内容替换原有内容  
 
 ```
 ifeq ($(CC),clang)
@@ -32,14 +32,14 @@ APP_ABI := armeabi-v7a
 APP_STL := gnustl_static
 ```
 
-编辑Android.mk，找到LOCAL_C_INCLUDES变量，加入以下属性  
+编辑Android.mk，找到LOCAL_C_INCLUDES变量，在变量里加入下面这个目录 
 
     $(LOCAL_PATH)/contrib/rapidjson/include
 
 ## step 4  加入代码文件std_extention.h
 
 进入${assimp dir}/include/assimp，新建文件std_extention.h  
-
+文件内容如下  
 ```
 #ifndef TESTFST_STD_EXTENSION_H
 #define TESTFST_STD_EXTENSION_H
@@ -64,7 +64,7 @@ namespace std{
 
 打开文件${assimp dir}/include/assimp/types.h,在include部分加入代码
 ```
-// std::toString
+// std::to_string
 #include "assimp/std_extension.h"
 ```
 
